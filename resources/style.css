@@ -1,0 +1,8 @@
+/*
+variable.setStyle(" ... ");
+*/
+
+* {
+	-fx-focus-color:#c5c5c5; 
+	-fx-faint-focus-color: transparent;
+}
