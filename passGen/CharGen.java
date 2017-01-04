@@ -11,7 +11,7 @@ public class CharGen {
 	private String characters; // String of characters
 	private static final String specChar = "!\"#$%&\'()*+,-.:;<=>?@[\\]^_`{|}~"; // Special character types
 	private static int length; // Length of string characters
-	private static final char[] charArray = {getRandomCapitalLetter(), getRandomMinusculeLetter(), getRandomNumericCharacter(), getRandomSpecialCharacter()};
+	//private static char[] charArray = {getRandomCapitalLetter(), getRandomMinusculeLetter(), getRandomNumericCharacter(), getRandomSpecialCharacter()};
 	
 	CharGen() {		
 	
@@ -78,7 +78,21 @@ public class CharGen {
 		StringBuilder myCharacters = new StringBuilder();
 		
 		for (int i = 0; i < getLength(); i++){
-			myCharacters.append(charArray[(int)(Math.random() * 4)]);
+			//myCharacters.append(charArray[(int)(Math.random() * 4)]);
+                        /*
+                        My edit uses a switch instead of the array.
+                        Uses a random number to choose which method it will run to create the password.
+                        */
+                        switch ((int)(Math.random() * 4)){
+                            case 0: myCharacters.append(getRandomCapitalLetter());
+                                break;
+                            case 1: myCharacters.append(getRandomMinusculeLetter());
+                                break;
+                            case 2: myCharacters.append(getRandomNumericCharacter());
+                                break;
+                            case 3: myCharacters.append(getRandomSpecialCharacter());
+                                break;
+                        }
 		}
 		String charString = myCharacters.toString();
 		return charString;
@@ -92,7 +106,21 @@ public class CharGen {
 		StringBuilder myCharacters = new StringBuilder();
 		
 		for (int i = 0; i < getLength(); i++){
-			myCharacters.append(charArray[(int)(Math.random() * 3)]);
+			//myCharacters.append(charArray[(int)(Math.floor(Math.random() * 3))]);
+                        /*
+                        My edit uses a switch instead of the array.
+                        Uses a random number to choose which method it will run to create the password.
+                        */
+                        switch ((int)(Math.random() * 3)){
+                            case 0: myCharacters.append(getRandomCapitalLetter());
+                                break;
+                            case 1: myCharacters.append(getRandomMinusculeLetter());
+                                break;
+                            case 2: myCharacters.append(getRandomNumericCharacter());
+                                break;
+                            case 3: myCharacters.append(getRandomSpecialCharacter());
+                                break;
+                        }
 		}
 		String charString = myCharacters.toString();
 		return charString;
