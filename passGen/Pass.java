@@ -13,7 +13,6 @@ import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.image.ImageView;
 
-
 public class Pass extends Application {
 	int inputLength = 0; // To store the integer value of the password length
 	private TextField tfPassLength = new TextField();
@@ -26,8 +25,12 @@ public class Pass extends Application {
 		Image copy = new Image(getClass().getResourceAsStream("../resources/icons/ic_copy.png"));
 		TextField tfPassword = new TextField();
 		tfPassword.setEditable(false);
+                
+                //Generate Button
 		Button btGenerate = new Button("Generate");
-		Button btCopy = new Button("", new ImageView(copy));
+                btGenerate.setPrefWidth(100);
+                
+                Button btCopy = new Button("", new ImageView(copy));
 		
 		CheckBox chSpecChar = new CheckBox("Special Characters");
 		CheckBox chInWords = new CheckBox("Include Words");
@@ -37,17 +40,28 @@ public class Pass extends Application {
 		checkList.getChildren().addAll(chSpecChar, chInWords, chWordOnly);
 		
 		HBox PassLengthBox = new HBox(8), PasswordBox = new HBox(8);
-		PassLengthBox.getChildren().addAll(new Label("Password Length:"), tfPassLength);
+		
+                //Password Length Box
+                Label lblPassLength = new Label("Password Length:");
+                lblPassLength.setPrefWidth(150);
+                lblPassLength.setAlignment(Pos.BASELINE_RIGHT);
+                PassLengthBox.getChildren().addAll(lblPassLength, tfPassLength);
 		PassLengthBox.setAlignment(Pos.CENTER_RIGHT);
-		PasswordBox.getChildren().addAll(new Label("Password:"), tfPassword);
+                
+                //Password Box
+                Label lblPassBox = new Label("Password:");
+                lblPassBox.setPrefWidth(150);
+                lblPassBox.setAlignment(Pos.BASELINE_RIGHT);
+		PasswordBox.getChildren().addAll(lblPassBox, tfPassword);
 		PasswordBox.setAlignment(Pos.CENTER_RIGHT);
+                PasswordBox.setPrefWidth(100);
 
 		GridPane gPane = new GridPane();
 		gPane.add(PassLengthBox, 0, 0); //... col, row);
 		gPane.add(PasswordBox, 0, 1);
 		gPane.add(btCopy, 1, 1);
 		gPane.add(checkList, 0, 2);
-		gPane.add(btGenerate, 2, 3);
+		gPane.add(btGenerate, 1, 3);
 		
 		btCopy.setDisable(true);
 		btGenerate.setDisable(true);
@@ -116,7 +130,7 @@ public class Pass extends Application {
 		mainPane.setRightAnchor(gPane, 10.0);
 		mainPane.getChildren().add(gPane);
 		
-		Scene scene = new Scene(mainPane, 370, 151); // w x h
+		Scene scene = new Scene(mainPane, 450, 175); // w x h
 		primaryStage.setTitle("Password Generator"); // Set the stage(window) title
 		primaryStage.getIcons().add(lock);
 		scene.getStylesheets().add("/resources/style.css");
