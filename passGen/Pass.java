@@ -61,7 +61,7 @@ public class Pass extends Application {
 		gPane.add(PasswordBox, 0, 1);
 		gPane.add(btCopy, 1, 1);
 		gPane.add(checkList, 0, 2);
-		gPane.add(btGenerate, 1, 3);
+		gPane.add(btGenerate, 1, 2);
 		
 		btCopy.setDisable(true);
 		btGenerate.setDisable(true);
@@ -130,7 +130,7 @@ public class Pass extends Application {
 		mainPane.setRightAnchor(gPane, 10.0);
 		mainPane.getChildren().add(gPane);
 		
-		Scene scene = new Scene(mainPane, 450, 175); // w x h
+		Scene scene = new Scene(mainPane, 450, 150); // w x h
 		primaryStage.setTitle("Password Generator"); // Set the stage(window) title
 		primaryStage.getIcons().add(lock);
 		scene.getStylesheets().add("/resources/style.css");
